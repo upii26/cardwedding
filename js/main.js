@@ -84,3 +84,33 @@ function countdown() {
 }
 
 setInterval(countdown, 1000);
+
+
+ // Mendapatkan elemen audio
+ var lagu = document.getElementById('lagu');
+ var backsound = document.getElementById('backsound');
+ var playButton = document.getElementById('playButton');
+
+ // Fungsi untuk memutar audio saat tombol diklik
+ function playAudio() {
+     backsound.volume = 0.3; // Set volume backsound
+     backsound.play();
+     lagu.play();
+     playButton.style.display = 'none'; // Sembunyikan tombol setelah diputar
+ }
+
+ // Memastikan audio diputar saat halaman dimuat
+ window.addEventListener('load', function() {
+     // Mulai dengan backsound volume 0.3
+     backsound.volume = 0.3;
+
+     // Coba memutar otomatis
+     lagu.play().then(() => {
+         // Jika berhasil, backsound juga diputar otomatis
+         backsound.play();
+     }).catch(error => {
+         // Jika autoplay diblokir, tampilkan tombol play di pojok kanan bawah
+         playButton.style.display = 'block';
+         console.log('Autoplay diblokir. Gunakan tombol untuk memutar musik.');
+     });
+ });
