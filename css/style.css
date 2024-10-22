@@ -433,6 +433,25 @@
 }
 /*** Footer End ***/
 
+ /* Gaya untuk tombol play di pojok kanan bawah */
+ #playButton {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: none; /* Disembunyikan dulu, muncul jika autoplay gagal */
+}
+
+/* Sembunyikan audio */
+audio {
+    display: none;
+}
+
 
 /*** copyright Start ***/
 .copyright {
