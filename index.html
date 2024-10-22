@@ -443,15 +443,7 @@
     </div>
     <!-- RSVP Form End -->
 
-    <!-- Elemen audio untuk lagu utama -->
-    <audio id="lagu" autoplay>
-        <source src="music/X2Download.app - What A Wonderful World (256 kbps).mp3" type="audio/mp3">
-    </audio>
-
-
-    <!-- Tombol Play di pojok kanan bawah -->
-    <button id="playButton" onclick="playAudio()">Putar Musik</button>
-
+    <iframe style="display: none;" width="560" height="315" src="music/What A Wonderful World.mp4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay"></iframe>
 
     <!-- JavaScript Libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
@@ -464,36 +456,7 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-    <script>
-        // Mendapatkan elemen audio
-        var lagu = document.getElementById('lagu');
-        var backsound = document.getElementById('backsound');
-        var playButton = document.getElementById('playButton');
 
-        // Fungsi untuk memutar audio saat tombol diklik
-        function playAudio() {
-            backsound.volume = 0.3; // Set volume backsound
-            backsound.play();
-            lagu.play();
-            playButton.style.display = 'none'; // Sembunyikan tombol setelah diputar
-        }
-
-        // Memastikan audio diputar saat halaman dimuat
-        window.addEventListener('load', function() {
-            // Mulai dengan backsound volume 0.3
-            backsound.volume = 0.3;
-
-            // Coba memutar otomatis
-            lagu.play().then(() => {
-                // Jika berhasil, backsound juga diputar otomatis
-                backsound.play();
-            }).catch(error => {
-                // Jika autoplay diblokir, tampilkan tombol play di pojok kanan bawah
-                playButton.style.display = 'block';
-                console.log('Autoplay diblokir. Gunakan tombol untuk memutar musik.');
-            });
-        });
-    </script>
 </body>
 
 </html>
